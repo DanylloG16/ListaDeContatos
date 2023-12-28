@@ -9,6 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+
 //        CRUD = CREATE (criar), READ (ler), UPDATE (atualizar), DELETE (apagar)
 
         List<Contato> contatos = new ArrayList<>(0);
@@ -27,11 +29,22 @@ public class Main {
 
         salvar(contatos);
 
-        Contato contatoEncontrado = buscar("C");
 
-        System.out.println("Telefone = " + contatoEncontrado.getTelefone());
-        System.out.println("E-mail = " + contatoEncontrado.getEmail());
+        // deletar("Ciclano");
+        //  deletar("Fulano");
 
+        //listContatos.clear();
+
+
+        //Contato contatoEncontrado = buscar("Ciclano");
+
+
+        for(int o = 0; o < listContatos.size();o++) {
+            Contato c = listContatos.get(o);
+            System.out.println("Telefone = " + c.getTelefone());
+            System.out.println("E-mail = " + c.getEmail());
+
+        }
     }
 
     private static void salvar(Contato contato) {
@@ -52,4 +65,23 @@ public class Main {
         }
         return null;
     }
+
+    private static void deletar(String nome){
+        for(int j = 0 ; j < listContatos.size(); j++){
+            Contato contato = listContatos.get(j);
+            if(contato.getNome().equals(nome)){
+                listContatos.remove(j);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 }
