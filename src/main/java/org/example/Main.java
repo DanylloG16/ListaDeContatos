@@ -10,21 +10,20 @@ public class Main {
     public static void main(String[] args) {
 
 
-
 //        CRUD = CREATE (criar), READ (ler), UPDATE (atualizar), DELETE (apagar)
 
         List<Contato> contatos = new ArrayList<>(0);
 
         Contato contato = new Contato();
         contato.setNome("Fulano");
-        contato.setTelefone("+55 (61) 99999-0000");
-        contato.setEmail("fulano@email.com");
+        contato.setTelefone("aaaaa");
+        contato.setEmail("aaaaa");
         contatos.add(contato);
 
         Contato contato1 = new Contato();
         contato1.setNome("Ciclano");
-        contato1.setTelefone("+55 (61) 99999-1111");
-        contato1.setEmail("ciclano@email.com");
+        contato1.setTelefone("aaaaa");
+        contato1.setEmail("aaaa");
         contatos.add(contato1);
 
         salvar(contatos);
@@ -39,10 +38,12 @@ public class Main {
         //Contato contatoEncontrado = buscar("Ciclano");
 
 
-        for(int o = 0; o < listContatos.size();o++) {
+        for (int o = 0; o < listContatos.size(); o++) {
             Contato c = listContatos.get(o);
             System.out.println("Telefone = " + c.getTelefone());
             System.out.println("E-mail = " + c.getEmail());
+
+
 
         }
     }
@@ -57,31 +58,46 @@ public class Main {
     }
 
     private static Contato buscar(String nome) {
-        for(int i = 0; i < listContatos.size(); i++) {
+        for (int i = 0; i < listContatos.size(); i++) {
             Contato contato = listContatos.get(i);
-            if(contato.getNome().equals(nome)) {
+            if (contato.getNome().equals(nome)) {
                 return contato;
             }
         }
         return null;
     }
 
-    private static void deletar(String nome){
-        for(int j = 0 ; j < listContatos.size(); j++){
+    private static void deletar(String nome) {
+        for (int j = 0; j < listContatos.size(); j++) {
             Contato contato = listContatos.get(j);
-            if(contato.getNome().equals(nome)){
+            if (contato.getNome().equals(nome)) {
                 listContatos.remove(j);
+
+            }
+        }
+    }
+
+    private static void atualizar(String nome ,  Contato novoContato) {
+        for (int j = 0; j < listContatos.size(); j++) {
+            Contato contato = listContatos.get(j);
+            if (contato.getNome().equals(nome)) {
+                contato.setNome(novoContato.getNome());
+                contato.setEmail(novoContato.getEmail());
+                contato.setTelefone(novoContato.getTelefone());
+                return; //
             }
         }
     }
 
 
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+

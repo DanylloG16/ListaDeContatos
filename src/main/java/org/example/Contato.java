@@ -15,6 +15,7 @@ public class Contato {
     }
 
     public String getTelefone() {
+
         return telefone;
     }
 
