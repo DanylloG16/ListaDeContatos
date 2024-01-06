@@ -1,10 +1,15 @@
 package org.example;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 public class Contato {
 
     private String nome;
     private String telefone;
     private String email;
+
+
 
     public String getNome() {
         return nome;
@@ -30,4 +35,6 @@ public class Contato {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

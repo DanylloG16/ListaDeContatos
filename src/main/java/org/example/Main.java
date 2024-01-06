@@ -8,65 +8,72 @@ public class Main {
     private static List<Contato> listContatos = new ArrayList<>(0);
 
     public static void main(String[] args) {
-
-
 //        CRUD = CREATE (criar), READ (ler), UPDATE (atualizar), DELETE (apagar)
-
         List<Contato> contatos = new ArrayList<>(0);
 
-        Contato contato = new Contato();
-        contato.setNome("Fulano");
-        contato.setTelefone("aaaaa");
-        contato.setEmail("aaaaa");
-        contatos.add(contato);
 
-        Contato contato1 = new Contato();
-        contato1.setNome("Ciclano");
-        contato1.setTelefone("aaaaa");
-        contato1.setEmail("aaaa");
-        contatos.add(contato1);
-
-        salvar(contatos);
-
-
+         salvar("danyllo", "asdasd", "asdasd");
         // deletar("Ciclano");
+
         //  deletar("Fulano");
 
         //listContatos.clear();
 
-
         //Contato contatoEncontrado = buscar("Ciclano");
 
+        // buscar mesmo se for maisculo ou minusculo
 
+        imprimir();
+//
+       Contato novoContato = new Contato();
+        novoContato.setNome("00");
+        novoContato.setTelefone("000");
+        novoContato.setEmail("000");
+//
+//        atualizar("Fulano", novoContato);
+//
+
+
+//        imprimir()
+
+        atualizar("DanyllO", novoContato);
+        imprimir();
+
+    }
+    private static boolean validar(Contato contato){
+        return contato != null && !contato.getNome().trim().isEmpty() && (!contato.getEmail().trim().isEmpty() || !contato.getTelefone().trim().isEmpty());
+    }
+    private static void salvar( String nome, String email, String telefone) {
+        Contato novoContato = new Contato();
+        novoContato.setNome(nome);
+        novoContato.setEmail(email);
+        novoContato.setTelefone(telefone);
+
+        if (validar(novoContato)) {
+            listContatos.add(novoContato);
+            System.out.println("Contato salvo com sucesso!");
+        } else {
+            System.out.println("Nome, email ou telefone inválido. Contato não pode ser salvo.");
+        }
+    }
+    private static void imprimir(){
+        System.out.println("...................................");
         for (int o = 0; o < listContatos.size(); o++) {
             Contato c = listContatos.get(o);
             System.out.println("Telefone = " + c.getTelefone());
             System.out.println("E-mail = " + c.getEmail());
-
-
-
+            System.out.println("nome = " + c.getNome());
         }
     }
-
-    private static void salvar(Contato contato) {
-        //TODO validar campos preenchidos
-        listContatos.add(contato);
-    }
-
-    private static void salvar(List<Contato> contatos) {
-        listContatos.addAll(contatos);
-    }
-
     private static Contato buscar(String nome) {
         for (int i = 0; i < listContatos.size(); i++) {
             Contato contato = listContatos.get(i);
-            if (contato.getNome().equals(nome)) {
+            if (contato.getNome().toLowerCase().equals(nome.toLowerCase())) {
                 return contato;
             }
         }
         return null;
     }
-
     private static void deletar(String nome) {
         for (int j = 0; j < listContatos.size(); j++) {
             Contato contato = listContatos.get(j);
@@ -76,21 +83,24 @@ public class Main {
             }
         }
     }
-
-    private static void atualizar(String nome ,  Contato novoContato) {
-        for (int j = 0; j < listContatos.size(); j++) {
-            Contato contato = listContatos.get(j);
-            if (contato.getNome().equals(nome)) {
+    private static void atualizar(String nome , Contato novoContato) {
+            Contato contato = buscar(nome);
+            if (contato != null && validar(novoContato) ) {
                 contato.setNome(novoContato.getNome());
                 contato.setEmail(novoContato.getEmail());
                 contato.setTelefone(novoContato.getTelefone());
-                return; //
+
+            }else{
+                System.out.println("Nome, email ou telefone inválido. Contato não pode ser salvo.");
             }
-        }
     }
-
-
 }
+
+
+
+
+
+
 
 
 

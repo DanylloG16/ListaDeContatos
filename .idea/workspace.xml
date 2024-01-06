@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7f25075d-ede9-4e90-926b-4f98397be4f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ListaDeContatos/org/example/Contato.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ListaDeContatos/org/example/Contato.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ListaDeContatos/org/example/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Contato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
     </list>
@@ -16,6 +18,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
