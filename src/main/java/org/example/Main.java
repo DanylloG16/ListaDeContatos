@@ -36,15 +36,27 @@ public class Main {
 
 //        imprimir()
 
-        atualizar("DanyllO", novoContato);
+        atualizar("Danyllo", novoContato);
         imprimir();
+
+        salvar("ASA", "777", "777");
+
+        Contato novoContato1 = new Contato();
+        novoContato.setNome("011");
+        novoContato.setTelefone("010");
+        novoContato.setEmail("010");
+
+
+       imprimir();
 
     }
     private static boolean validar(Contato contato){
         return contato != null && !contato.getNome().trim().isEmpty() && (!contato.getEmail().trim().isEmpty() || !contato.getTelefone().trim().isEmpty());
     }
     private static void salvar( String nome, String email, String telefone) {
+        int id = gerarId();
         Contato novoContato = new Contato();
+        novoContato.setId(id);
         novoContato.setNome(nome);
         novoContato.setEmail(email);
         novoContato.setTelefone(telefone);
@@ -56,6 +68,20 @@ public class Main {
             System.out.println("Nome, email ou telefone inválido. Contato não pode ser salvo.");
         }
     }
+
+
+
+    private static int gerarId(){
+       int quantidade = listContatos.size();
+       quantidade ++;
+       return quantidade;
+    }
+
+   // private static boolean nomeUnico(Contato novoContato) {
+     //   String novoNome = novoContato.getNome().toLowerCase();
+
+
+
     private static void imprimir(){
         System.out.println("...................................");
         for (int o = 0; o < listContatos.size(); o++) {
@@ -63,12 +89,13 @@ public class Main {
             System.out.println("Telefone = " + c.getTelefone());
             System.out.println("E-mail = " + c.getEmail());
             System.out.println("nome = " + c.getNome());
+            System.out.println(" ID = " + c.getId());
         }
     }
     private static Contato buscar(String nome) {
         for (int i = 0; i < listContatos.size(); i++) {
             Contato contato = listContatos.get(i);
-            if (contato.getNome().toLowerCase().equals(nome.toLowerCase())) {
+            if (contato.getNome().toLowerCase().contains(nome.toLowerCase())) {
                 return contato;
             }
         }
